@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layouts/base}">
+<head>
+    <title>Dashboard</title>
+    <!-- src/main/resources/templates/fragments/custom-css.html -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" rel="stylesheet">
+    <!-- src/main/resources/templates/fragments/custom-css.html -->
+    <style>
+        /* Base styles for Dropzone */
+        .dropzone {
+            border-radius: 4px;
+            border: 2px dashed var(--dropzone-border-color);
+            background-color: var(--dropzone-bg-color);
+            color: var(--dropzone-text-color);
+        }
+
+        /* Dark mode styles */
+        html[data-mode="dark"] .dropzone {
+            --dropzone-border-color: #9ca3af;
+            --dropzone-bg-color: #2d333c;
+            --dropzone-text-color: #aab8c5;
+        }
+
+        /* Light mode styles */
+        html[data-mode="light"] .dropzone {
+            --dropzone-border-color: #ddd;
+            --dropzone-bg-color: #f9f9f9;
+            --dropzone-text-color: #333;
+        }
+
+        /* Dropzone specific styles for upload and upload complete */
+        .dropzone.dz-started {
+            border-color: var(--dropzone-border-color-start);
+        }
+
+        .dropzone.dz-success {
+            border-color: var(--dropzone-border-color-success);
+        }
+
+        .dropzone.dz-error {
+            border-color: var(--dropzone-border-color-error);
+        }
+
+        /* Cancel upload and remove file icon styles */
+        .dropzone .dz-remove {
+            color: var(--dropzone-text-color);
+            transition: color 0.3s;
+        }
+
+        .dropzone .dz-remove:hover {
+            color: var(--dropzone-text-color-hover);
+        }
+
+        /* Dark mode icon styles */
+        html[data-mode="dark"] .dropzone .dz-remove {
+            --dropzone-text-color-hover: #e2e8f0;
+        }
+
+        /* Light mode icon styles */
+        html[data-mode="light"] .dropzone .dz-remove {
+            --dropzone-text-color-hover: #4a5568;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+
+<main layout:fragment="content">
+
+    <!-- Page Title Start -->
+    <div class="flex justify-between items-center mb-6">
+        <h4 class="text-slate-900 dark:text-slate-200 text-lg font-medium">Dashboard</h4>
+
+        <div class="md:flex hidden items-center gap-2.5 font-semibold">
+            <div class="flex items-center gap-2">
+                <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">Attex</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <i class="ri-arrow-right-s-line text-base text-slate-400 rtl:rotate-180"></i>
+                <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">Menu</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <i class="ri-arrow-right-s-line text-base text-slate-400 rtl:rotate-180"></i>
+                <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400"
+                   aria-current="page">Dashboard</a>
+            </div>
+        </div>
+    </div>
+    <!-- Page Title End -->
+
+    <div class="card">
+        <div class="p-6">
+            <div class="flex justify-between items-center">
+                <h4 class="card-title mb-1">Grid</h4>
+            </div>
+
+            <div class="pt-5">
+                <form th:action="@{/admin/category/save}" th:object="${category}" method="post"
+                      enctype="multipart/form-data">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
+
+                        <div>
+                            <label for="name" class="mb-2">Name</label>
+                            <input type="text" class="form-input" id="name" th:field="*{name}"
+                                   placeholder="name">
+                            <p class="text-danger" th:if="${#fields.hasErrors('name')}"
+                               th:text="${#fields.errors('name')[0]}">Name Error</p>
+                        </div>
+
+                        <div>
+                            <label for="slug" class="mb-2">Slug</label>
+                            <input type="text" class="form-input" id="slug" th:field="*{slug}">
+                            <p class="text-danger" th:if="${#fields.hasErrors('slug')}" th:errors="*{slug}">Slug
+                                Error</p>
+                        </div>
+                        <div>
+                            <label for="status" class="mb-2">Status</label>
+                            <select id="status" class="form-select" th:field="*{status}">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                            <p class="text-danger" th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Status
+                                Error</p>
+                        </div>
+
+                        <div>
+                            <label for="showHome" class="mb-2">Show on home</label>
+                            <select id="showHome" class="form-select" th:field="*{showHome}">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                            <p class="text-danger" th:if="${#fields.hasErrors('showHome')}" th:errors="*{showHome}">
+                                ShowHome Error</p>
+                        </div>
+                        <div class="lg:col-span-2">
+                            <!--                            <label for="image" class="mb-2">Image</label>-->
+                            <!--                            <input type="file" class="form-input" id="image" th:field="*{image}">-->
+                            <input type="hidden" name="image_id" id="image_id">
+                            <label for="image" class="text-slate-200">Image</label>
+                            <div id="image" class="dropzone dz-clickable bg-gray-700 border border-gray-600">
+                                <div class="dz-message needsclick text-slate-400">
+                                    <br>Drop files here or click to upload.<br><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- end grid -->
+
+                    <!--                    <div class="flex items-center gap-2 my-3">-->
+                    <!--                        <input type="checkbox" class="form-checkbox rounded border border-gray-200"-->
+                    <!--                               id="customCheck11">-->
+                    <!--                        <label class="text-gray-800 text-sm font-medium inline-block" for="customCheck11">Check this-->
+                    <!--                            custom checkbox !</label>-->
+                    <!--                    </div> -->
+                    <!-- end flex -->
+
+                    <button type="submit" class="btn bg-primary text-white">Add</button> <!-- end button -->
+                </form> <!-- end form -->
+
+            </div>
+
+        </div>
+    </div>
+
+
+</main>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+<div layout:fragment="customJs">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        Dropzone.autoDiscover = false;
+
+        const myDropzone = new Dropzone("#image", {
+            url: "/admin/upload-temp-image/create", // Ensure this maps to your Spring Boot upload endpoint
+            maxFiles: 1,
+            paramName: 'image', // The name of the file parameter
+            addRemoveLinks: true,
+            acceptedFiles: "image/jpeg,image/png,image/gif",
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            success: function (file, response) {
+                console.log('File uploaded successfully', response);
+                $("#image_id").val(response.image_id);
+            },
+            error: function (file, response) {
+                console.error('File upload failed', response);
+                alert('Error uploading file!');
+            }
+        });
+
+        myDropzone.on("addedfile", function () {
+            if (myDropzone.files.length > 1) {
+                myDropzone.removeFile(myDropzone.files[0]); // Ensure only one file is uploaded at a time
+            }
+        });
+    </script>
+
+
+</div>
+</body>
+</html>

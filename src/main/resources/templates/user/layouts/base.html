@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce</title>
 
     <!-- Favicon -->
@@ -81,124 +83,22 @@
                         <i class="icon-category text-2xl"></i>
                     </div>
                     <div class="left flex items-center gap-16">
-                        <a href="index.html"
+                        <a th:href="@{/home}"
                            class="flex items-center max-lg:absolute max-lg:left-1/2 max-lg:-translate-x-1/2">
                             <div class="heading4">Anvogue</div>
                         </a>
                         <div class="menu-main h-full max-lg:hidden">
                             <ul class="flex items-center gap-8 h-full">
                                 <li class="h-full relative">
-                                    <a href="#!"
-                                       class="text-button-uppercase duration-300 h-full flex items-center justify-center gap-1 active">
+                                    <a th:href="@{/home}"
+                                       class="text-button-uppercase duration-300 h-full flex items-center justify-center gap-1"
+                                       th:classappend="${ page =='home' ? 'active':''}">
                                         Home </a>
-                                    <div class="sub-menu py-3 px-5 -left-10 w-max absolute grid grid-cols-4 gap-5 bg-white rounded-b-xl">
-                                        <ul>
-                                            <li>
-                                                <a href="index.html" class="link text-secondary duration-300 active">
-                                                    Home
-                                                    Fashion 1 </a>
-                                            </li>
-                                            <li>
-                                                <a href="fashion2.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 2 </a>
-                                            </li>
-                                            <li>
-                                                <a href="fashion3.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 3 </a>
-                                            </li>
-                                            <li>
-                                                <a href="fashion4.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 4 </a>
-                                            </li>
-                                            <li>
-                                                <a href="fashion5.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 5 </a>
-                                            </li>
-                                            <li>
-                                                <a href="fashion6.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 6 </a>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <a href="fashion7.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 7 </a>
-                                            </li>
-                                            <li>
-                                                <a href="fashion8.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 8 </a>
-                                            </li>
-                                            <li>
-                                                <a href="fashion9.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 9 </a>
-                                            </li>
-                                            <li>
-                                                <a href="fashion10.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 10 </a>
-                                            </li>
-                                            <li>
-                                                <a href="fashion11.html" class="link text-secondary duration-300"> Home
-                                                    Fashion 11 </a>
-                                            </li>
-                                            <li>
-                                                <a href="underwear.html" class="link text-secondary duration-300"> Home
-                                                    Underwear </a>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <a href="cosmetic1.html" class="link text-secondary duration-300"> Home
-                                                    Cosmetic 1 </a>
-                                            </li>
-                                            <li>
-                                                <a href="cosmetic2.html" class="link text-secondary duration-300"> Home
-                                                    Cosmetic 2 </a>
-                                            </li>
-                                            <li>
-                                                <a href="cosmetic3.html" class="link text-secondary duration-300"> Home
-                                                    Cosmetic 3 </a>
-                                            </li>
-                                            <li>
-                                                <a href="pet.html" class="link text-secondary duration-300"> Home Pet
-                                                    Store </a>
-                                            </li>
-                                            <li>
-                                                <a href="jewelry.html" class="link text-secondary duration-300"> Home
-                                                    Jewelry </a>
-                                            </li>
-                                            <li>
-                                                <a href="furniture.html" class="link text-secondary duration-300"> Home
-                                                    Furniture </a>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <a href="watch.html" class="link text-secondary duration-300"> Home
-                                                    Watch </a>
-                                            </li>
-                                            <li>
-                                                <a href="toys.html" class="link text-secondary duration-300"> Home Toys
-                                                    Kid </a>
-                                            </li>
-                                            <li>
-                                                <a href="yoga.html" class="link text-secondary duration-300"> Home
-                                                    Yoga </a>
-                                            </li>
-                                            <li>
-                                                <a href="organic.html" class="link text-secondary duration-300"> Home
-                                                    Organic </a>
-                                            </li>
-                                            <li>
-                                                <a href="marketplace.html" class="link text-secondary duration-300">
-                                                    Home
-                                                    Marketplace </a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </li>
                                 <li class="h-full">
-                                    <a href="#!"
-                                       class="text-button-uppercase duration-300 h-full flex items-center justify-center">
+                                    <a th:href="@{/user/feature}"
+                                       class="text-button-uppercase duration-300 h-full flex items-center justify-center"
+                                       th:classappend="${ page =='feature' ? 'active':''}">
                                         Features </a>
                                     <div class="mega-menu absolute top-[74px] left-0 bg-white w-screen">
                                         <div class="container">
@@ -208,27 +108,27 @@
                                                         <div class="text-button-uppercase pb-2">For Men</div>
                                                         <ul>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Starting From 50% Off </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Outerwear | Coats </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Sweaters | Cardigans </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Shirt | Sweatshirts </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer view-all-btn">
                                                                     View All </a>
                                                             </li>
@@ -238,27 +138,27 @@
                                                         <div class="text-button-uppercase pb-2">Massimo Dutti</div>
                                                         <ul>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Shirt | Clothes </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Top | Overshirts </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     T-shirts | Clothes </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Swimwear | Underwear </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 view-all-btn">
                                                                     View All </a>
                                                             </li>
@@ -268,27 +168,27 @@
                                                         <div class="text-button-uppercase pb-2">Skincare</div>
                                                         <ul>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Faces Skin </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Eyes Makeup </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Lip Polish </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Hair Care </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 view-all-btn">
                                                                     View All </a>
                                                             </li>
@@ -298,27 +198,27 @@
                                                         <div class="text-button-uppercase pb-2">Health</div>
                                                         <ul>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Cented Candle </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Health Drinks </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Yoga Clothes </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Yoga Equipment </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 view-all-btn">
                                                                     View All </a>
                                                             </li>
@@ -328,27 +228,27 @@
                                                         <div class="text-button-uppercase pb-2">For Women</div>
                                                         <ul>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Starting From 60% Off </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Dresses | Jumpsuits </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     T-shirts | Sweatshirts </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Accessories | Jewelry </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 view-all-btn">
                                                                     View All </a>
                                                             </li>
@@ -358,27 +258,27 @@
                                                         <div class="text-button-uppercase pb-2">For Kid</div>
                                                         <ul>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Kids Bed </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Boy's Toy </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Baby Blanket </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Newborn Clothing </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 view-all-btn">
                                                                     View All </a>
                                                             </li>
@@ -388,27 +288,27 @@
                                                         <div class="text-button-uppercase pb-2">For Home</div>
                                                         <ul>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Furniture | Decor </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Table | Living Room </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Chair | Work Room </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 cursor-pointer">
                                                                     Lighting | Bed Room </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300 view-all-btn">
                                                                     View All </a>
                                                             </li>
@@ -416,7 +316,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="banner-ads-block pl-2.5 basis-1/3">
-                                                    <a href="shop-breadcrumb1.html"
+                                                    <a href="feature.html"
                                                        class="banner-ads-item bg-linear rounded-2xl relative block overflow-hidden cursor-pointer">
                                                         <div class="text-content py-14 pl-8 relative z-[1]">
                                                             <div class="text-button-uppercase text-white bg-red px-2 py-0.5 inline-block rounded-sm">
@@ -432,7 +332,7 @@
                                                              alt="bg-img">
                                                         class="h-full w-auto absolute right-0 top-0 duration-700"/>
                                                     </a>
-                                                    <a href="shop-breadcrumb1.html"
+                                                    <a href="feature.html"
                                                        class="banner-ads-item bg-linear rounded-2xl relative block overflow-hidden cursor-pointer mt-8">
                                                         <div class="text-content py-14 pl-8 relative z-[1]">
                                                             <div class="text-button-uppercase text-white bg-red px-2 py-0.5 inline-block rounded-sm">
@@ -453,8 +353,9 @@
                                     </div>
                                 </li>
                                 <li class="h-full">
-                                    <a href="#!"
-                                       class="text-button-uppercase duration-300 h-full flex items-center justify-center">
+                                    <a th:href="@{/user/shop}"
+                                       class="text-button-uppercase duration-300 h-full flex items-center justify-center"
+                                       th:classappend="${ page =='shop' ? 'active':''}">
                                         Shop </a>
                                     <div class="mega-menu absolute top-[74px] left-0 bg-white w-screen">
                                         <div class="container">
@@ -470,13 +371,13 @@
                                                                     IMG </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb1.html"
+                                                                <a href="feature.html"
                                                                    class="link text-secondary duration-300"> Shop
                                                                     Breadcrumb
                                                                     1 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="shop-breadcrumb2.html"
+                                                                <a href="shop.html"
                                                                    class="link text-secondary duration-300"> Shop
                                                                     Breadcrumb
                                                                     2 </a>
@@ -963,7 +864,9 @@
                                 </li>
                                 <li class="h-full relative">
                                     <a href="#!"
-                                       class="text-button-uppercase duration-300 h-full flex items-center justify-center">
+                                       class="text-button-uppercase duration-300 h-full flex items-center justify-center"
+                                       th:classappend="${parentPages.contains('pages') ? 'active' : ''}"
+                                    >
                                         Pages </a>
                                     <div class="sub-menu py-3 px-5 -left-10 absolute bg-white rounded-b-xl">
                                         <ul class="w-full">
@@ -978,11 +881,15 @@
                                             <li>
                                                 <a href="store-list.html" class="link text-secondary duration-300">
                                                     Store
-                                                    List </a>
+                                                    List
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="page-not-found.html" class="link text-secondary duration-300">
-                                                    404 </a>
+                                                <a th:href="@{/user/page-not-found}"
+                                                   class="link text-secondary duration-300"
+                                                   th:classappend="${ page =='404' ? 'active':''}">
+                                                    404
+                                                </a>
                                             </li>
                                             <li>
                                                 <a href="faqs.html" class="link text-secondary duration-300"> FAQs </a>
@@ -1010,12 +917,14 @@
                         </div>
                         <div class="list-action flex items-center gap-4">
                             <div class="user-icon flex items-center justify-center cursor-pointer">
+                                <h5 class="text-sm" sec:authentication="name">no name</h5>
                                 <i class="ph-bold ph-user text-2xl"></i>
                                 <div class="login-popup absolute top-[74px] w-[320px] p-7 rounded-xl bg-white box-shadow-small">
-                                    <a href="login.html" class="button-main w-full text-center">Login</a>
+                                    <a th:href="@{/user/login}" class="button-main w-full text-center">Login</a>
                                     <div class="text-secondary text-center mt-3 pb-4">
                                         Don’t have an account?
-                                        <a href="register.html" class="text-black pl-1 hover:underline">Register </a>
+                                        <a th:href="@{/user/register}"
+                                           class="text-black pl-1 hover:underline">Register </a>
                                     </div>
                                     <div class="bottom pt-4 border-t border-line"></div>
                                     <a href="#!" class="body1 hover:underline">Support</a>
@@ -1044,7 +953,7 @@
                             <div class="close-menu-mobile-btn absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-surface flex items-center justify-center">
                                 <i class="ph ph-x text-sm"></i>
                             </div>
-                            <a href="index.html" class="logo text-3xl font-semibold text-center">Anvogue</a>
+                            <a th:href="@{/home}" class="logo text-3xl font-semibold text-center">Anvogue</a>
                         </div>
                         <div class="form-search relative mt-2">
                             <i class="ph ph-magnifying-glass text-xl absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer"></i>
@@ -1068,7 +977,7 @@
                                         <div class="list-nav-item w-full grid grid-cols-2 pt-2 pb-6">
                                             <ul>
                                                 <li>
-                                                    <a href="index.html"
+                                                    <a th:href="@{/home}"
                                                        class="nav-item-mobile link text-secondary duration-300 active">
                                                         Home
                                                         Fashion 1 </a>
@@ -1807,7 +1716,7 @@
         <!-- Menu bar -->
         <div class="menu_bar fixed bg-white bottom-0 left-0 w-full h-[70px] sm:hidden z-[101]">
             <div class="menu_bar-inner grid grid-cols-4 items-center h-full">
-                <a href="index.html" class="menu_bar-link flex flex-col items-center gap-1">
+                <a th:href="@{/home}" class="menu_bar-link flex flex-col items-center gap-1">
                     <span class="ph-bold ph-house text-2xl block"></span>
                     <span class="menu_bar-title caption2 font-semibold">Home</span>
                 </a>
@@ -1829,520 +1738,25 @@
             </div>
         </div>
 
-        <!-- Slider -->
-        <div class="slider-block style-one bg-linear xl:h-[860px] lg:h-[800px] md:h-[580px] sm:h-[500px] h-[350px] max-[420px]:h-[320px] w-full">
-            <div class="slider-main h-full w-full">
-                <div class="swiper swiper-slider h-full relative">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="slider-item h-full w-full relative">
-                                <div class="container w-full h-full flex items-center relative">
-                                    <div class="text-content basis-1/2">
-                                        <div class="text-sub-display">Sale! Up To 50% Off!</div>
-                                        <div class="text-display md:mt-5 mt-2">Summer Sale Collections</div>
-                                        <a href="shop-breadcrumb-img.html" class="button-main md:mt-8 mt-3">Shop Now</a>
-                                    </div>
-                                    <div class="sub-img absolute sm:w-1/2 w-3/5 2xl:-right-[60px] -right-[16px] bottom-0">
-                                        <img th:src="@{user/assets/images/slider/bg1-1.png}" alt="bg1-1"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slider-item h-full w-full relative">
-                                <div class="container w-full h-full flex items-center relative">
-                                    <div class="text-content basis-1/2">
-                                        <div class="text-sub-display">Sale! Up To 50% Off!</div>
-                                        <div class="text-display md:mt-5 mt-2">Fashion for Every Occasion</div>
-                                        <a href="shop-breadcrumb-img.html" class="button-main md:mt-8 mt-3">Shop
-                                            Now </a>
-                                    </div>
-                                    <div class="sub-img absolute w-1/2 2xl:-right-[60px] -right-[0] sm:-bottom-[60px] bottom-0">
-                                        <img th:src="@{user/assets/images/slider/bg1-2.png}" alt="bg1-2"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slider-item h-full w-full relative">
-                                <div class="container w-full h-full flex items-center relative">
-                                    <div class="text-content basis-1/2">
-                                        <div class="text-sub-display">Sale! Up To 50% Off!</div>
-                                        <div class="text-display md:mt-5 mt-2">Stylish Looks for Any Season</div>
-                                        <a href="shop-breadcrumb-img.html" class="button-main md:mt-8 mt-3">Shop
-                                            Now </a>
-                                    </div>
-                                    <div class="sub-img absolute sm:w-1/2 w-2/3 2xl:-right-[60px] -right-[36px] sm:bottom-0 -bottom-[30px]">
-                                        <img th:src="@{user/assets/images/slider/bg1-3.png}" alt="bg1-3"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
+        <div layout:fragment="breadcrumb">
+            <!--breadcrumb here if you want-->
         </div>
     </div>
 
-    <div class="what-new-block filter-product-block md:pt-20 pt-10">
-        <div class="container">
-            <div class="heading flex flex-col items-center text-center">
-                <div class="heading3">What's new</div>
-                <div class="menu-tab bg-surface rounded-2xl mt-6">
-                    <div class="menu flex items-center gap-2 p-1">
-                        <div class="indicator absolute top-1 bottom-1 bg-white rounded-full shadow-md duration-300"></div>
-                        <div class="tab-item relative text-secondary text-button-uppercase py-2 px-5 cursor-pointer duration-300 hover:text-black"
-                             data-item="top">top
-                        </div>
-                        <div class="tab-item relative text-secondary text-button-uppercase py-2 px-5 cursor-pointer duration-300 hover:text-black active"
-                             data-item="t-shirt">t-shirt
-                        </div>
-                        <div class="tab-item relative text-secondary text-button-uppercase py-2 px-5 cursor-pointer duration-300 hover:text-black"
-                             data-item="dress">dress
-                        </div>
-                        <div class="tab-item relative text-secondary text-button-uppercase py-2 px-5 cursor-pointer duration-300 hover:text-black"
-                             data-item="sets">sets
-                        </div>
-                        <div class="tab-item relative text-secondary text-button-uppercase py-2 px-5 cursor-pointer duration-300 hover:text-black"
-                             data-item="shirt">shirt
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-product four-product hide-product-sold grid xl:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-[30px] gap-4 md:mt-10 mt-6">
-                <!-- List four product -->
-            </div>
-        </div>
+    <div layout:fragment="slider">
+        <!--slider here if you want-->
     </div>
 
-    <div class="collection-block md:pt-20 pt-10">
-        <div class="container">
-            <div class="heading3 text-center">Explore Collections</div>
-        </div>
-        <div class="list-collection relative section-swiper-navigation md:mt-10 mt-6 sm:px-5 px-4">
-            <div class="swiper-button-prev lg:left-10 left-6"></div>
-            <div class="swiper swiper-collection h-full relative">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="shop-breadcrumb1.html"
-                           class="collection-item block relative rounded-2xl overflow-hidden cursor-pointer">
-                            <div class="bg-img">
-                                <img th:src="@{user/assets/images/collection/swimwear.png}" alt="swimwear"/>
-                            </div>
-                            <div class="collection-name heading5 text-center sm:bottom-8 bottom-4 lg:w-[200px] md:w-[160px] w-[100px] md:py-3 py-1.5 bg-white rounded-xl duration-500">
-                                swimwear
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="shop-breadcrumb1.html"
-                           class="collection-item block relative rounded-2xl overflow-hidden cursor-pointer">
-                            <div class="bg-img">
-                                <img th:src="@{user/assets/images/collection/top.png}" alt="top"/>
-                            </div>
-                            <div class="collection-name heading5 text-center sm:bottom-8 bottom-4 lg:w-[200px] md:w-[160px] w-[100px] md:py-3 py-1.5 bg-white rounded-xl duration-500">
-                                top
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="shop-breadcrumb1.html"
-                           class="collection-item block relative rounded-2xl overflow-hidden cursor-pointer">
-                            <div class="bg-img">
-                                <img th:src="@{user/assets/images/collection/sets.png}" alt="sets"/>
-                            </div>
-                            <div class="collection-name heading5 text-center sm:bottom-8 bottom-4 lg:w-[200px] md:w-[160px] w-[100px] md:py-3 py-1.5 bg-white rounded-xl duration-500">
-                                sets
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="shop-breadcrumb1.html"
-                           class="collection-item block relative rounded-2xl overflow-hidden cursor-pointer">
-                            <div class="bg-img">
-                                <img th:src="@{user/assets/images/collection/outerwear.png}" alt="outerwear"/>
-                            </div>
-                            <div class="collection-name heading5 text-center sm:bottom-8 bottom-4 lg:w-[200px] md:w-[160px] w-[100px] md:py-3 py-1.5 bg-white rounded-xl duration-500">
-                                outerwear
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="shop-breadcrumb1.html"
-                           class="collection-item block relative rounded-2xl overflow-hidden cursor-pointer">
-                            <div class="bg-img">
-                                <img th:src="@{user/assets/images/collection/underwear.png}" alt="underwear"/>
-                            </div>
-                            <div class="collection-name heading5 text-center sm:bottom-8 bottom-4 lg:w-[200px] md:w-[160px] w-[100px] md:py-3 py-1.5 bg-white rounded-xl duration-500">
-                                underwear
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="shop-breadcrumb1.html"
-                           class="collection-item block relative rounded-2xl overflow-hidden cursor-pointer">
-                            <div class="bg-img">
-                                <img th:src="@{user/assets/images/collection/t-shirt.png}" alt="t-shirt"/>
-                            </div>
-                            <div class="collection-name heading5 text-center sm:bottom-8 bottom-4 lg:w-[200px] md:w-[160px] w-[100px] md:py-3 py-1.5 bg-white rounded-xl duration-500">
-                                t-shirt
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-button-next lg:right-10 right-6"></div>
-        </div>
+    <div layout:fragment="content">
+        <!--main item for the page here=-->
     </div>
-
-    <div class="tab-features-block filter-product-block md:pt-20 pt-10">
-        <div class="container">
-            <div class="heading flex flex-col items-center text-center">
-                <div class="menu-tab bg-surface rounded-2xl">
-                    <div class="menu flex items-center gap-2 p-1">
-                        <div class="indicator absolute top-1 bottom-1 bg-white rounded-full shadow-md duration-300"></div>
-                        <div class="tab-item relative text-secondary heading5 py-2 px-5 cursor-pointer duration-500 hover:text-black active"
-                             data-item="best sellers">best sellers
-                        </div>
-                        <div class="tab-item relative text-secondary heading5 py-2 px-5 cursor-pointer duration-500 hover:text-black"
-                             data-item="on sale">on sale
-                        </div>
-                        <div class="tab-item relative text-secondary heading5 py-2 px-5 cursor-pointer duration-500 hover:text-black"
-                             data-item="new arrivals">new arrivals
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-product six-product hide-product-sold relative section-swiper-navigation style-outline style-small-border md:mt-10 mt-6">
-                <div class="swiper-button-prev2 sm:left-10 left-6">
-                    <i class="ph-bold ph-caret-left text-xl"></i>
-                </div>
-                <div class="swiper swiper-list-product h-full relative">
-                    <div class="swiper-wrapper">
-                        <!-- List six product -->
-                    </div>
-                </div>
-                <div class="swiper-button-next2 sm:right-10 right-6">
-                    <i class="ph-bold ph-caret-right text-xl"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="banner-block style-one grid sm:grid-cols-2 gap-5 md:pt-20 pt-10">
-        <a href="shop-breadcrumb-img.html" class="banner-item relative block overflow-hidden duration-500">
-            <div class="banner-img">
-                <img th:src="@{user/assets/images/banner/1.png}" class="duration-1000" alt="img"/>
-            </div>
-            <div class="banner-content absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-                <div class="heading2 text-white">Best Sellers</div>
-                <div class="text-button text-white relative inline-block pb-1 border-b-2 border-white duration-500 mt-2">
-                    Shop Now
-                </div>
-            </div>
-        </a>
-        <a href="shop-breadcrumb-img.html" class="banner-item relative block overflow-hidden duration-500">
-            <div class="banner-img">
-                <img th:src="@{user/assets/images/banner/2.png}" class="duration-1000" alt="img"/>
-            </div>
-            <div class="banner-content absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-                <div class="heading2 text-white">New Arrivals</div>
-                <div class="text-button text-white relative inline-block pb-1 border-b-2 border-white duration-500 mt-2">
-                    Shop Now
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="benefit-block md:pt-20 pt-10">
-        <div class="container">
-            <div class="list-benefit grid items-start lg:grid-cols-4 grid-cols-2 gap-[30px]">
-                <div class="benefit-item flex flex-col items-center justify-center">
-                    <i class="icon-phone-call lg:text-7xl text-5xl"></i>
-                    <div class="heading6 text-center mt-5">24/7 Customer Service</div>
-                    <div class="caption1 text-secondary text-center mt-3">We're here to help you with any questions or
-                        concerns you have, 24/7.
-                    </div>
-                </div>
-                <div class="benefit-item flex flex-col items-center justify-center">
-                    <i class="icon-return lg:text-7xl text-5xl"></i>
-                    <div class="heading6 text-center mt-5">14-Day Money Back</div>
-                    <div class="caption1 text-secondary text-center mt-3">If you're not satisfied with your purchase,
-                        simply
-                        return it within 14 days for a refund.
-                    </div>
-                </div>
-                <div class="benefit-item flex flex-col items-center justify-center">
-                    <i class="icon-guarantee lg:text-7xl text-5xl"></i>
-                    <div class="heading6 text-center mt-5">Our Guarantee</div>
-                    <div class="caption1 text-secondary text-center mt-3">We stand behind our products and services and
-                        guarantee your satisfaction.
-                    </div>
-                </div>
-                <div class="benefit-item flex flex-col items-center justify-center">
-                    <i class="icon-delivery-truck lg:text-7xl text-5xl"></i>
-                    <div class="heading6 text-center mt-5">Shipping worldwide</div>
-                    <div class="caption1 text-secondary text-center mt-3">We ship our products worldwide, making them
-                        accessible to customers everywhere.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="testimonial-block md:pt-20 md:pb-16 pt-10 pb-8 md:mt-20 mt-10 bg-surface">
-        <div class="container">
-            <div class="heading3 text-center">What People Are Saying</div>
-            <div class="list-testimonial pagination-mt40 md:mt-10 mt-6">
-                <div class="swiper swiper-list-testimonial h-full relative">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item style-one h-full">
-                                <div class="testimonial-main bg-white p-8 rounded-2xl h-full">
-                                    <div class="flex items-center gap-1">
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                    </div>
-                                    <div class="heading6 title mt-4">Variety of Styles!</div>
-                                    <div class="desc mt-2">"Fantastic shop! Great selection, fair prices, and friendly
-                                        staff. Highly recommended. The quality of the products is exceptional, and the
-                                        prices are very reasonable!"
-                                    </div>
-                                    <div class="text-button name mt-4">Lisa K.</div>
-                                    <div class="caption2 date text-secondary2 mt-1">August 13, 2024</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial-item style-one h-full">
-                                <div class="testimonial-main bg-white p-8 rounded-2xl h-full">
-                                    <div class="flex items-center gap-1">
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                    </div>
-                                    <div class="heading6 title mt-4">Quality of Clothing!</div>
-                                    <div class="desc mt-2">"Anvouge's fashion collection is a game-changer! Their unique
-                                        and
-                                        trendy pieces have completely transformed my style. It's comfortable, stylish,
-                                        and
-                                        always on-trend."
-                                    </div>
-                                    <div class="text-button name mt-4">Elizabeth A.</div>
-                                    <div class="caption2 date text-secondary2 mt-1">August 13, 2024</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial-item style-one h-full">
-                                <div class="testimonial-main bg-white p-8 rounded-2xl h-full">
-                                    <div class="flex items-center gap-1">
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                    </div>
-                                    <div class="heading6 title mt-4">Customer Service!</div>
-                                    <div class="desc mt-2">"I absolutely love this shop! The products are high-quality
-                                        and
-                                        the customer service is excellent. I always leave with exactly what I need and a
-                                        smile on my face."
-                                    </div>
-                                    <div class="text-button name mt-4">Christin H.</div>
-                                    <div class="caption2 date text-secondary2 mt-1">August 13, 2024</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial-item style-one h-full">
-                                <div class="testimonial-main bg-white p-8 rounded-2xl h-full">
-                                    <div class="flex items-center gap-1">
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                    </div>
-                                    <div class="heading6 title mt-4">Quality of Clothing!</div>
-                                    <div class="desc mt-2">"I can't get enough of Anvouge's high-quality clothing. It's
-                                        comfortable, stylish, and always on-trend. The products are high-quality and the
-                                        customer service is excellent."
-                                    </div>
-                                    <div class="text-button name mt-4">Emily G.</div>
-                                    <div class="caption2 date text-secondary2 mt-1">August 13, 2024</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial-item style-one h-full">
-                                <div class="testimonial-main bg-white p-8 rounded-2xl h-full">
-                                    <div class="flex items-center gap-1">
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                        <i class="ph-fill ph-star text-yellow"></i>
-                                    </div>
-                                    <div class="heading6 title mt-4">Customer Service!</div>
-                                    <div class="desc mt-2">"I love this shop! The products are always top-quality, and
-                                        the
-                                        staff is incredibly friendly and helpful. They go out of their way to make sure
-                                        that
-                                        I'm satisfied my purchase."
-                                    </div>
-                                    <div class="text-button name mt-4">Carolina C.</div>
-                                    <div class="caption2 date text-secondary2 mt-1">August 13, 2024</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--<div class="instagram-block md:pt-20 pt-10">-->
-    <!--    <div class="container">-->
-    <!--        <div class="heading">-->
-    <!--            <div class="heading3 text-center">Anvogue On Instagram</div>-->
-    <!--            <div class="text-center mt-3">#Anvougetheme</div>-->
-    <!--        </div>-->
-    <!--        <div class="list-instagram md:mt-10 mt-6">-->
-    <!--            <div class="swiper swiper-list-instagram">-->
-    <!--                <div class="swiper-wrapper">-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <a href="https://www.instagram.com/" target="_blank"-->
-    <!--                           class="item relative block rounded-[32px] overflow-hidden">-->
-    <!--                            <img th:src="@{user/assets/images/instagram/0.png}" alt="0"-->
-    <!--                                 class="h-full w-full duration-500 relative"/>-->
-    <!--                            <div class="icon w-12 h-12 bg-white hover:bg-black duration-500 flex items-center justify-center rounded-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1]">-->
-    <!--                                <div class="icon-instagram text-2xl text-black"></div>-->
-    <!--                            </div>-->
-    <!--                        </a>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <a href="https://www.instagram.com/" target="_blank"-->
-    <!--                           class="item relative block rounded-[32px] overflow-hidden">-->
-    <!--                            <img th:src="@{user/assets/images/instagram/1.png}" alt="1"-->
-    <!--                                 class="h-full w-full duration-500 relative"/>-->
-    <!--                            <div class="icon w-12 h-12 bg-white hover:bg-black duration-500 flex items-center justify-center rounded-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1]">-->
-    <!--                                <div class="icon-instagram text-2xl text-black"></div>-->
-    <!--                            </div>-->
-    <!--                        </a>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <a href="https://www.instagram.com/" target="_blank"-->
-    <!--                           class="item relative block rounded-[32px] overflow-hidden">-->
-    <!--                            <img th:src="@{user/assets/images/instagram/2.png}" alt="2"-->
-    <!--                                 class="h-full w-full duration-500 relative"/>-->
-    <!--                            <div class="icon w-12 h-12 bg-white hover:bg-black duration-500 flex items-center justify-center rounded-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1]">-->
-    <!--                                <div class="icon-instagram text-2xl text-black"></div>-->
-    <!--                            </div>-->
-    <!--                        </a>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <a href="https://www.instagram.com/" target="_blank"-->
-    <!--                           class="item relative block rounded-[32px] overflow-hidden">-->
-    <!--                            <img th:src="@{user/assets/images/instagram/3.png}" alt="3"-->
-    <!--                                 class="h-full w-full duration-500 relative"/>-->
-    <!--                            <div class="icon w-12 h-12 bg-white hover:bg-black duration-500 flex items-center justify-center rounded-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1]">-->
-    <!--                                <div class="icon-instagram text-2xl text-black"></div>-->
-    <!--                            </div>-->
-    <!--                        </a>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <a href="https://www.instagram.com/" target="_blank"-->
-    <!--                           class="item relative block rounded-[32px] overflow-hidden">-->
-    <!--                            <img th:src="@{user/assets/images/instagram/4.png}" alt="4"-->
-    <!--                                 class="h-full w-full duration-500 relative"/>-->
-    <!--                            <div class="icon w-12 h-12 bg-white hover:bg-black duration-500 flex items-center justify-center rounded-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1]">-->
-    <!--                                <div class="icon-instagram text-2xl text-black"></div>-->
-    <!--                            </div>-->
-    <!--                        </a>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <a href="https://www.instagram.com/" target="_blank"-->
-    <!--                           class="item relative block rounded-[32px] overflow-hidden">-->
-    <!--                            <img th:src="@{user/assets/images/instagram/5.png}" alt="5"-->
-    <!--                                 class="h-full w-full duration-500 relative"/>-->
-    <!--                            <div class="icon w-12 h-12 bg-white hover:bg-black duration-500 flex items-center justify-center rounded-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1]">-->
-    <!--                                <div class="icon-instagram text-2xl text-black"></div>-->
-    <!--                            </div>-->
-    <!--                        </a>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-    <!--<div class="brand-block md:py-[60px] py-[32px]">-->
-    <!--    <div class="container">-->
-    <!--        <div class="list-brand">-->
-    <!--            <div class="swiper swiper-list-brand">-->
-    <!--                <div class="swiper-wrapper">-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <div class="brand-item relative flex items-center justify-center h-[36px]">-->
-    <!--                            <img th:src="@{user/assets/images/brand/1.png}" alt="1"-->
-    <!--                                 class="h-full w-auto duration-500 relative object-cover"/>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <div class="brand-item relative flex items-center justify-center h-[36px]">-->
-    <!--                            <img th:src="@{user/assets/images/brand/2.png}" alt="2"-->
-    <!--                                 class="h-full w-auto duration-500 relative object-cover"/>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <div class="brand-item relative flex items-center justify-center h-[36px]">-->
-    <!--                            <img th:src="@{user/assets/images/brand/3.png}" alt="3"-->
-    <!--                                 class="h-full w-auto duration-500 relative object-cover"/>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <div class="brand-item relative flex items-center justify-center h-[36px]">-->
-    <!--                            <img th:src="@{user/assets/images/brand/4.png}" alt="4"-->
-    <!--                                 class="h-full w-auto duration-500 relative object-cover"/>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <div class="brand-item relative flex items-center justify-center h-[36px]">-->
-    <!--                            <img th:src="@{user/assets/images/brand/5.png}" alt="5"-->
-    <!--                                 class="h-full w-auto duration-500 relative object-cover"/>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <div class="brand-item relative flex items-center justify-center h-[36px]">-->
-    <!--                            <img th:src="@{user/assets/images/brand/6.png}" alt="6"-->
-    <!--                                 class="h-full w-auto duration-500 relative object-cover"/>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                    <div class="swiper-slide">-->
-    <!--                        <div class="brand-item relative flex items-center justify-center h-[36px]">-->
-    <!--                            <img th:src="@{user/assets/images/brand/7.png}" alt="7"-->
-    <!--                                 class="h-full w-auto duration-500 relative object-cover"/>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
 
     <div id="footer" class="footer">
         <div class="footer-main bg-surface">
             <div class="container">
                 <div class="content-footer md:py-[60px] py-10 flex justify-between flex-wrap gap-y-8">
                     <div class="company-infor basis-1/4 max-lg:basis-full pr-7">
-                        <a href="index.html" class="logo inline-block">
+                        <a th:href="@{/home}" class="logo inline-block">
                             <div class="heading3 w-fit">Anvogue</div>
                         </a>
                         <div class="flex gap-3 mt-3">
@@ -2368,22 +1782,19 @@
                                 <a class="caption1 has-line-before duration-300 w-fit pt-2" href="my-account.html"> My
                                     Account</a>
                                 <a class="caption1 has-line-before duration-300 w-fit pt-2" href="order-tracking.html">
-                                    Order & Returns</a>
+                                    Order &amp; Returns</a>
                                 <a class="caption1 has-line-before duration-300 w-fit pt-2" href="faqs.html">FAQs </a>
                             </div>
                             <div class="item flex flex-col basis-1/3">
                                 <div class="text-button-uppercase pb-3">Quick Shop</div>
-                                <a class="caption1 has-line-before duration-300 w-fit"
-                                   href="shop-breadcrumb1.html">Women</a>
+                                <a class="caption1 has-line-before duration-300 w-fit" href="shop-breadcrumb1.html">Women</a>
                                 <a class="caption1 has-line-before duration-300 w-fit pt-2"
                                    href="shop-breadcrumb1.html">Men </a>
                                 <a class="caption1 has-line-before duration-300 w-fit pt-2"
                                    href="shop-breadcrumb1.html">Clothes </a>
                                 <a class="caption1 has-line-before duration-300 w-fit pt-2"
-                                   href="shop-breadcrumb1.html">
-                                    Accessories </a>
-                                <a class="caption1 has-line-before duration-300 w-fit pt-2"
-                                   href="blog-default.html">Blog </a>
+                                   href="shop-breadcrumb1.html"> Accessories </a>
+                                <a class="caption1 has-line-before duration-300 w-fit pt-2" href="blog-default.html">Blog </a>
                             </div>
                             <div class="item flex flex-col basis-1/3">
                                 <div class="text-button-uppercase pb-3">Customer Services</div>
@@ -2393,7 +1804,7 @@
                                 <a class="caption1 has-line-before duration-300 w-fit pt-2" href="faqs.html">Privacy
                                     Policy</a>
                                 <a class="caption1 has-line-before duration-300 w-fit pt-2" href="order-tracking.html">Return
-                                    & Refund</a>
+                                    &amp; Refund</a>
                             </div>
                         </div>
                         <div class="newsletter basis-1/3 pl-7 max-md:basis-full max-md:pl-0">
@@ -2404,7 +1815,7 @@
                                 <form class="w-full h-full relative" action="post">
                                     <input type="email" placeholder="Enter your e-mail"
                                            class="caption1 w-full h-full pl-4 pr-14 rounded-xl border border-line"
-                                           required/>
+                                           required="">
                                     <button class="w-[44px] h-[44px] bg-black flex items-center justify-center rounded-xl absolute top-1 right-1">
                                         <i class="ph ph-arrow-right text-xl text-white"></i>
                                     </button>
@@ -2455,22 +1866,22 @@
                     <div class="right flex items-center gap-2">
                         <div class="caption1 text-secondary">Payment:</div>
                         <div class="payment-img">
-                            <img th:src="@{user/assets/images/payment/Frame-0.png}" alt="payment" class="w-9"/>
+                            <img th:src="@{user/assets/images/payment/Frame-0.png}" alt="payment" class="w-9">
                         </div>
                         <div class="payment-img">
-                            <img th:src="@{user/assets/images/payment/Frame-1.png}" alt="payment" class="w-9"/>
+                            <img th:src="@{user/assets/images/payment/Frame-1.png}" alt="payment" class="w-9">
                         </div>
                         <div class="payment-img">
-                            <img th:src="@{user/assets/images/payment/Frame-2.png}" alt="payment" class="w-9"/>
+                            <img th:src="@{user/assets/images/payment/Frame-2.png}" alt="payment" class="w-9">
                         </div>
                         <div class="payment-img">
-                            <img th:src="@{user/assets/images/payment/Frame-3.png}" alt="payment" class="w-9"/>
+                            <img th:src="@{user/assets/images/payment/Frame-3.png}" alt="payment" class="w-9">
                         </div>
                         <div class="payment-img">
-                            <img th:src="@{user/assets/images/payment/Frame-4.png}" alt="payment" class="w-9"/>
+                            <img th:src="@{user/assets/images/payment/Frame-4.png}" alt="payment" class="w-9">
                         </div>
                         <div class="payment-img">
-                            <img th:src="@{user/assets/images/payment/Frame-5.png}" alt="payment" class="w-9"/>
+                            <img th:src="@{user/assets/images/payment/Frame-5.png}" alt="payment" class="w-9">
                         </div>
                     </div>
                 </div>
@@ -2478,113 +1889,116 @@
         </div>
     </div>
 
-    <a class="scroll-to-top-btn" href="#top-nav"><i class="ph-bold ph-caret-up"></i></a>
-
-    <!-- Modal -->
-    <div class="modal-newsletter">
-        <div class="container h-full flex items-center justify-center w-full">
-            <div class="modal-newsletter-main">
-                <div class="main-content flex rounded-[20px] overflow-hidden w-full">
-                    <div class="left lg:w-1/2 sm:w-2/5 max-sm:hidden bg-green flex flex-col items-center justify-center gap-5 py-14">
-                        <div class="text-xs font-semibold uppercase text-center">Special Offer</div>
-                        <div class="lg:text-[70px] text-4xl lg:leading-[78px] leading-[42px] font-bold uppercase text-center">
-                            Black<br/>Fridays
-                        </div>
-                        <div class="text-button-uppercase text-center">New customers save <span
-                                class="text-red">30%</span>
-                            with the code
-                        </div>
-                        <div class="text-button-uppercase text-red bg-white py-2 px-4 rounded-lg">GET20off</div>
-                        <div class="button-main w-fit bg-black text-white hover:bg-white uppercase">Copy coupon code
-                        </div>
-                    </div>
-                    <div class="right lg:w-1/2 sm:w-3/5 w-full bg-white sm:pt-10 sm:pl-10 max-sm:p-6 relative">
-                        <div class="close-newsletter-btn w-10 h-10 flex items-center justify-center border border-line rounded-full absolute right-5 top-5 cursor-pointer">
-                            <i class="ph-bold ph-x text-xl"></i>
-                        </div>
-                        <div class="heading5 pb-5">You May Also Like</div>
-                        <div class="list overflow-x-auto sm:pr-6">
-                            <div class="product-item item pb-5 flex items-center justify-between gap-3 border-b border-line"
-                                 data-item="1">
-                                <div class="infor flex items-center gap-5">
-                                    <div class="bg-img">
-                                        <img th:src="@{user/assets/images/product/1000x1000.png}" alt="img"
-                                             class="w-[100px] aspect-square flex-shrink-0 rounded-lg"/>
-                                    </div>
-                                    <div class="">
-                                        <div class="name text-button">Faux-leather trousers</div>
-                                        <div class="flex items-center gap-2 mt-2">
-                                            <div class="product-price text-title">$15.00</div>
-                                            <div class="product-origin-price text-title text-secondary2">
-                                                <del>$25.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="quick-view-btn button-main sm:py-3 py-2 sm:px-5 px-4 bg-black hover:bg-green text-white rounded-full whitespace-nowrap">
-                                    QUICK VIEW
-                                </div>
+    <a class="scroll-to-top-btn active" href="#top-nav">
+        <i class="ph-bold ph-caret-up"></i>
+    </a>
+    <!--    new paper or ad-->
+    <div th:if="${newspaper!=false && newspaper!=null}">
+        <div class="modal-newsletter">
+            <div class="container h-full flex items-center justify-center w-full">
+                <div class="modal-newsletter-main">
+                    <div class="main-content flex rounded-[20px] overflow-hidden w-full">
+                        <div class="left lg:w-1/2 sm:w-2/5 max-sm:hidden bg-green flex flex-col items-center justify-center gap-5 py-14">
+                            <div class="text-xs font-semibold uppercase text-center">Special Offer</div>
+                            <div class="lg:text-[70px] text-4xl lg:leading-[78px] leading-[42px] font-bold uppercase text-center">
+                                Black<br>Fridays
                             </div>
-                            <div class="product-item item py-5 flex items-center justify-between gap-3 border-b border-line"
-                                 data-item="2">
-                                <div class="infor flex items-center gap-5">
-                                    <div class="bg-img">
-                                        <img th:src="@{user/assets/images/product/1000x1000.png}" alt="img"
-                                             class="w-[100px] aspect-square flex-shrink-0 rounded-lg"/>
-                                    </div>
-                                    <div class="">
-                                        <div class="name text-button">Faux-leather trousers</div>
-                                        <div class="flex items-center gap-2 mt-2">
-                                            <div class="product-price text-title">$15.00</div>
-                                            <div class="product-origin-price text-title text-secondary2">
-                                                <del>$25.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="quick-view-btn button-main sm:py-3 py-2 sm:px-5 px-4 bg-black hover:bg-green text-white rounded-full whitespace-nowrap">
-                                    QUICK VIEW
-                                </div>
+                            <div class="text-button-uppercase text-center">New customers save <span
+                                    class="text-red">30%</span> with the code
                             </div>
-                            <div class="product-item item py-5 flex items-center justify-between gap-3 border-b border-line"
-                                 data-item="3">
-                                <div class="infor flex items-center gap-5">
-                                    <div class="bg-img">
-                                        <img th:src="@{user/assets/images/product/1000x1000.png}" alt="img"
-                                             class="w-[100px] aspect-square flex-shrink-0 rounded-lg"/>
-                                    </div>
-                                    <div class="">
-                                        <div class="name text-button">Faux-leather trousers</div>
-                                        <div class="flex items-center gap-2 mt-2">
-                                            <div class="product-price text-title">$15.00</div>
-                                            <div class="product-origin-price text-title text-secondary2">
-                                                <del>$25.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="quick-view-btn button-main sm:py-3 py-2 sm:px-5 px-4 bg-black hover:bg-green text-white rounded-full whitespace-nowrap">
-                                    QUICK VIEW
-                                </div>
+                            <div class="text-button-uppercase text-red bg-white py-2 px-4 rounded-lg">GET20off</div>
+                            <div class="button-main w-fit bg-black text-white hover:bg-white uppercase">Copy coupon code
                             </div>
-                            <div class="product-item item py-5 flex items-center justify-between gap-3" data-item="4">
-                                <div class="infor flex items-center gap-5">
-                                    <div class="bg-img">
-                                        <img th:src="@{user/assets/images/product/1000x1000.png}" alt="img"
-                                             class="w-[100px] aspect-square flex-shrink-0 rounded-lg"/>
-                                    </div>
-                                    <div class="">
-                                        <div class="name text-button">Faux-leather trousers</div>
-                                        <div class="flex items-center gap-2 mt-2">
-                                            <div class="product-price text-title">$15.00</div>
-                                            <div class="product-origin-price text-title text-secondary2">
-                                                <del>$25.00</del>
+                        </div>
+                        <div class="right lg:w-1/2 sm:w-3/5 w-full bg-white sm:pt-10 sm:pl-10 max-sm:p-6 relative">
+                            <div class="close-newsletter-btn w-10 h-10 flex items-center justify-center border border-line rounded-full absolute right-5 top-5 cursor-pointer">
+                                <i class="ph-bold ph-x text-xl"></i>
+                            </div>
+                            <div class="heading5 pb-5">You May Also Like</div>
+                            <div class="list overflow-x-auto sm:pr-6">
+                                <div class="product-item item pb-5 flex items-center justify-between gap-3 border-b border-line"
+                                     data-item="1">
+                                    <div class="infor flex items-center gap-5">
+                                        <div class="bg-img">
+                                            <img th:src="@{user/assets/images/product/1000x1000.png}" alt="img"
+                                                 class="w-[100px] aspect-square flex-shrink-0 rounded-lg">
+                                        </div>
+                                        <div class="">
+                                            <div class="name text-button">Faux-leather trousers</div>
+                                            <div class="flex items-center gap-2 mt-2">
+                                                <div class="product-price text-title">$15.00</div>
+                                                <div class="product-origin-price text-title text-secondary2">
+                                                    <del>$25.00</del>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="quick-view-btn button-main sm:py-3 py-2 sm:px-5 px-4 bg-black hover:bg-green text-white rounded-full whitespace-nowrap">
+                                        QUICK VIEW
+                                    </div>
                                 </div>
-                                <div class="quick-view-btn button-main sm:py-3 py-2 sm:px-5 px-4 bg-black hover:bg-green text-white rounded-full whitespace-nowrap">
-                                    QUICK VIEW
+                                <div class="product-item item py-5 flex items-center justify-between gap-3 border-b border-line"
+                                     data-item="2">
+                                    <div class="infor flex items-center gap-5">
+                                        <div class="bg-img">
+                                            <img th:src="@{user/assets/images/product/1000x1000.png}" alt="img"
+                                                 class="w-[100px] aspect-square flex-shrink-0 rounded-lg">
+                                        </div>
+                                        <div class="">
+                                            <div class="name text-button">Faux-leather trousers</div>
+                                            <div class="flex items-center gap-2 mt-2">
+                                                <div class="product-price text-title">$15.00</div>
+                                                <div class="product-origin-price text-title text-secondary2">
+                                                    <del>$25.00</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="quick-view-btn button-main sm:py-3 py-2 sm:px-5 px-4 bg-black hover:bg-green text-white rounded-full whitespace-nowrap">
+                                        QUICK VIEW
+                                    </div>
+                                </div>
+                                <div class="product-item item py-5 flex items-center justify-between gap-3 border-b border-line"
+                                     data-item="3">
+                                    <div class="infor flex items-center gap-5">
+                                        <div class="bg-img">
+                                            <img th:src="@{user/assets/images/product/1000x1000.png}" alt="img"
+                                                 class="w-[100px] aspect-square flex-shrink-0 rounded-lg">
+                                        </div>
+                                        <div class="">
+                                            <div class="name text-button">Faux-leather trousers</div>
+                                            <div class="flex items-center gap-2 mt-2">
+                                                <div class="product-price text-title">$15.00</div>
+                                                <div class="product-origin-price text-title text-secondary2">
+                                                    <del>$25.00</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="quick-view-btn button-main sm:py-3 py-2 sm:px-5 px-4 bg-black hover:bg-green text-white rounded-full whitespace-nowrap">
+                                        QUICK VIEW
+                                    </div>
+                                </div>
+                                <div class="product-item item py-5 flex items-center justify-between gap-3"
+                                     data-item="4">
+                                    <div class="infor flex items-center gap-5">
+                                        <div class="bg-img">
+                                            <img th:src="@{user/assets/images/product/1000x1000.png}" alt="img"
+                                                 class="w-[100px] aspect-square flex-shrink-0 rounded-lg">
+                                        </div>
+                                        <div class="">
+                                            <div class="name text-button">Faux-leather trousers</div>
+                                            <div class="flex items-center gap-2 mt-2">
+                                                <div class="product-price text-title">$15.00</div>
+                                                <div class="product-origin-price text-title text-secondary2">
+                                                    <del>$25.00</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="quick-view-btn button-main sm:py-3 py-2 sm:px-5 px-4 bg-black hover:bg-green text-white rounded-full whitespace-nowrap">
+                                        QUICK VIEW
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3581,6 +2995,10 @@
             </div>
         </div>
     </div>
+</div>
+
+<div layout:fragment="customJs">
+
 </div>
 
 <script th:src="@{/user/assets/js/phosphor-icons.js}"></script>

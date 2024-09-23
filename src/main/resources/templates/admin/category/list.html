@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{admin/layouts/base}">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+
+<main layout:fragment="content">
+
+    <!-- Page Title Start -->
+    <div class="flex justify-between items-center mb-6">
+        <h4 class="text-slate-900 dark:text-slate-200 text-lg font-medium">Dashboard</h4>
+
+        <div class="md:flex hidden items-center gap-2.5 font-semibold">
+            <div class="flex items-center gap-2">
+                <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">Attex</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <i class="ri-arrow-right-s-line text-base text-slate-400 rtl:rotate-180"></i>
+                <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">Menu</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <i class="ri-arrow-right-s-line text-base text-slate-400 rtl:rotate-180"></i>
+                <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400"
+                   aria-current="page">Dashboard</a>
+            </div>
+        </div>
+    </div>
+    <!-- Page Title End -->
+     <div class="card">
+            <div class="p-6">
+                <h3 class="card-title mb-4">Bordered color table</h3>
+
+                <div class="relative overflow-auto">
+                    <table class="border-collapse min-w-full border border-primary dark:border-slate-600 bg-white dark:bg-slate-800 text-sm shadow-sm">
+                        <thead class="bg-slate-50 dark:bg-slate-700">
+                        <tr>
+                            <th class="border border-primary dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-start">
+                                User
+                            </th>
+                            <th class="border border-primary dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-start">
+                                Account No.
+                            </th>
+                            <th class="border border-primary dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-start">
+                                Balance
+                            </th>
+                            <th class="border border-primary dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-center">
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row"
+                                class="flex items-center gap-2 px-4 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                <img class="w-8 h-8 rounded-full" src="/static/images/users/avatar-1.jpg"
+                                     alt="Jese image">
+                                <div class="whitespace-nowrap text-sm font-medium text-gray-500 dark:text-gray-200">Risa
+                                    D. Pearson
+                                </div>
+                            </th>
+                            <td class="border border-primary dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">
+                                AC336 508 2157
+                            </td>
+                            <td class="border border-primary dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">
+                                July 24, 1950
+                            </td>
+                            <td class="border border-primary dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400 text-center">
+                                <a href="javascript: void(0);"><i class="ri-delete-bin-2-line text-xl p-1"></i></a>
+                                <a href="javascript: void(0);"><i class="ri-edit-line text-xl p-1"></i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+</main>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->
+<div layout:fragment="customJs">
+
+</div>
+</body>
+</html>

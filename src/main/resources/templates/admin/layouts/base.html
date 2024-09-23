@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="utf-8">
     <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Your page description here">
+    <meta name="csrf-token" content="${_csrf.token}">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" th:href="@{admin/assets/images/favicon.ico}">
+    <link rel="shortcut icon" th:href="@{/admin/assets/images/favicon.ico}">
 
     <!-- plugin css -->
-    <link th:href="@{admin/assets/libs/jsvectormap/css/jsvectormap.min.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/admin/assets/libs/jsvectormap/css/jsvectormap.min.css}" rel="stylesheet" type="text/css">
 
     <!-- App css -->
-    <link th:href="@{admin/assets/css/app.min.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/admin/assets/css/app.min.css}" rel="stylesheet" type="text/css">
 
     <!-- Icons css -->
-    <link th:href="@{admin/assets/css/icons.min.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/admin/assets/css/icons.min.css}" rel="stylesheet" type="text/css">
 
     <!-- Theme Config Js -->
-    <script th:src="@{admin/assets/js/config.js}"></script>
+    <script th:src="@{/admin/assets/js/config.js}"></script>
+
 </head>
 <body>
 
@@ -28,7 +32,6 @@
 <!--</header>-->
 
 <div class="flex wrapper">
-
     <!-- Sidenav Menu -->
     <div class="app-menu">
 
@@ -36,14 +39,14 @@
         <a href="index.html" class="logo-box">
             <!-- Light Logo -->
             <div class="logo-light">
-                <img th:src="@{admin/assets/images/logo.png}" class="logo-lg h-[22px]" alt="Light logo">
-                <img th:src="@{admin/assets/images/logo-sm.png}" class="logo-sm h-[22px]" alt="Small logo">
+                <img th:src="@{/admin/assets/images/logo.png}" class="logo-lg h-[22px]" alt="Light logo">
+                <img th:src="@{/admin/assets/images/logo-sm.png}" class="logo-sm h-[22px]" alt="Small logo">
             </div>
 
             <!-- Dark Logo -->
             <div class="logo-dark">
-                <img th:src="@{admin/assets/images/logo-dark.png}" class="logo-lg h-[22px]" alt="Dark logo">
-                <img th:src="@{admin/assets/images/logo-sm.png}" class="logo-sm h-[22px]" alt="Small logo">
+                <img th:src="@{/admin/assets/images/logo-dark.png}" class="logo-lg h-[22px]" alt="Dark logo">
+                <img th:src="@{/admin/assets/images/logo-sm.png}" class="logo-sm h-[22px]" alt="Small logo">
             </div>
         </a>
 
@@ -59,59 +62,64 @@
                 <li class="menu-title">Navigation</li>
 
                 <li class="menu-item">
-                    <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
+                    <a th:href="@{/admin/dashboard}" class="menu-link">
                             <span class="menu-icon">
                                 <i class="ri-home-4-line"></i>
                             </span>
                         <span class="menu-text"> Dashboard </span>
-                        <span class="badge bg-success rounded-full">2</span>
                     </a>
+                    <!--                    <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">-->
+                    <!--                            <span class="menu-icon">-->
+                    <!--                                <i class="ri-home-4-line"></i>-->
+                    <!--                            </span>-->
+                    <!--                        <span class="menu-text"> Dashboard </span>-->
+                    <!--                        <span class="badge bg-success rounded-full">2</span>-->
+                    <!--                    </a>-->
 
-                    <ul class="sub-menu hidden">
-                        <li class="menu-item">
-                            <a href="dashboard-analytics.html" class="menu-link">
-                                <span class="menu-text">Analytics</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="index.html" class="menu-link">
-                                <span class="menu-text">Ecommerce</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <!--                    <ul class="sub-menu hidden">-->
+                    <!--                        <li class="menu-item">-->
+                    <!--                            <a href="dashboard-analytics.html" class="menu-link">-->
+                    <!--                                <span class="menu-text">Analytics</span>-->
+                    <!--                            </a>-->
+                    <!--                        </li>-->
+                    <!--                        <li class="menu-item">-->
+                    <!--                            <a href="index.html" class="menu-link">-->
+                    <!--                                <span class="menu-text">Ecommerce</span>-->
+                    <!--                            </a>-->
+                    <!--                        </li>-->
+                    <!--                    </ul>-->
                 </li>
 
                 <li class="menu-title">Apps</li>
 
                 <li class="menu-item">
-                    <a href="apps-chat.html" class="menu-link">
-                            <span class="menu-icon">
-                                <i class="ri-message-3-line"></i>
-                            </span>
-                        <span class="menu-text"> Chat </span>
-                    </a>
-                </li>
-
-                <li class="menu-item">
                     <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
                             <span class="menu-icon">
-                                <i class="ri-task-line"></i>
+                                <i class="ri-user-line"></i>
                             </span>
-                        <span class="menu-text"> Tasks </span>
+                        <span class="menu-text"> Users </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="sub-menu hidden">
                         <li class="menu-item">
-                            <a href="apps-tasks-list.html" class="menu-link">
+                            <a th:href="@{/admin/category/list}" class="menu-link">
                                 <span class="menu-text">List</span>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="apps-tasks-details.html" class="menu-link">
-                                <span class="menu-text">Details</span>
+                            <a th:href="@{/admin/category/add}" class="menu-link">
+                                <span class="menu-text">Add</span>
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="apps-calendar.html" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="ri-calendar-event-line"></i>
+                            </span>
+                        <span class="menu-text"> Calendar </span>
+                    </a>
                 </li>
             </ul>
 
@@ -127,14 +135,14 @@
             <a href="index.html" class="logo-box">
                 <!-- Light Logo -->
                 <div class="logo-light">
-                    <img th:src="@{admin/assets/images/logo.png}" class="logo-lg h-[22px]" alt="Light logo">
-                    <img th:src="@{admin/assets/images/logo-sm.png}" class="logo-sm h-[22px]" alt="Small logo">
+                    <img th:src="@{/admin/assets/images/logo.png}" class="logo-lg h-[22px]" alt="Light logo">
+                    <img th:src="@{/admin/assets/images/logo-sm.png}" class="logo-sm h-[22px]" alt="Small logo">
                 </div>
 
                 <!-- Dark Logo -->
                 <div class="logo-dark">
-                    <img th:src="@{admin/assets/images/logo-dark.png}" class="logo-lg h-[22px]" alt="Dark logo">
-                    <img th:src="@{admin/assets/images/logo-sm.png}" class="logo-sm h-[22px]" alt="Small logo">
+                    <img th:src="@{/admin/assets/images/logo-dark.png}" class="logo-lg h-[22px]" alt="Dark logo">
+                    <img th:src="@{/admin/assets/images/logo-sm.png}" class="logo-sm h-[22px]" alt="Small logo">
                 </div>
             </a>
 
@@ -189,7 +197,7 @@
                     <!-- item-->
                     <a href="javascript:void(0);"
                        class="flex items-center py-2 px-3 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
-                        <img class="me-2 rounded-full h-8" th:src="@{admin/assets/images/users/avatar-2.jpg}"
+                        <img class="me-2 rounded-full h-8" th:src="@{/admin/assets/images/users/avatar-2.jpg}"
                              alt="Generic placeholder image">
                         <div class="flex-grow">
                             <h5 class="m-0 fs-14">Erwin Brown</h5>
@@ -200,7 +208,7 @@
                     <!-- item-->
                     <a href="javascript:void(0);"
                        class="flex items-center py-2 px-3 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
-                        <img class="me-2 rounded-full h-8" th:src="@{admin/assets/images/users/avatar-5.jpg}"
+                        <img class="me-2 rounded-full h-8" th:src="@{/admin/assets/images/users/avatar-5.jpg}"
                              alt="Generic placeholder image">
                         <div class="flex-grow">
                             <h5 class="m-0 fs-14">Jacob Deo</h5>
@@ -215,7 +223,7 @@
                 <button data-fc-type="dropdown" data-fc-placement="bottom-end" type="button"
                         class="nav-link p-2 fc-dropdown">
                         <span class="flex items-center gap-2">
-                            <img th:src="@{admin/assets/images/flags/us.jpg}" alt="flag-image" class="h-3">
+                            <img th:src="@{/admin/assets/images/flags/us.jpg}" alt="flag-image" class="h-3">
                             <div class="lg:block hidden">
                                 <span>English</span>
                                 <i class="ri-arrow-down-s-line"></i>
@@ -228,28 +236,28 @@
                     <!-- item-->
                     <a href="javascript:void(0);"
                        class="flex items-center gap-2.5 py-2 px-3 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
-                        <img th:src="@{admin/assets/images/flags/germany.jpg}" alt="user-image" class="h-4">
+                        <img th:src="@{/admin/assets/images/flags/germany.jpg}" alt="user-image" class="h-4">
                         <span class="align-middle">German</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);"
                        class="flex items-center gap-2.5 py-2 px-3 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
-                        <img th:src="@{admin/assets/images/flags/italy.jpg}" alt="user-image" class="h-4">
+                        <img th:src="@{/admin/assets/images/flags/italy.jpg}" alt="user-image" class="h-4">
                         <span class="align-middle">Italian</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);"
                        class="flex items-center gap-2.5 py-2 px-3 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
-                        <img th:src="@{admin/assets/images/flags/spain.jpg}" alt="user-image" class="h-4">
+                        <img th:src="@{/admin/assets/images/flags/spain.jpg}" alt="user-image" class="h-4">
                         <span class="align-middle">Spanish</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);"
                        class="flex items-center gap-2.5 py-2 px-3 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
-                        <img th:src="@{admin/assets/images/flags/russia.jpg}" alt="user-image" class="h-4">
+                        <img th:src="@{/admin/assets/images/flags/russia.jpg}" alt="user-image" class="h-4">
                         <span class="align-middle">Russian</span>
                     </a>
                 </div>
@@ -290,10 +298,11 @@
             <div class="relative">
                 <button data-fc-type="dropdown" data-fc-placement="bottom-end" type="button"
                         class="nav-link flex items-center gap-2.5 px-3 bg-black/5 border-x border-black/10">
-                    <img th:src="@{admin/assets/images/users/avatar-1.jpg}" alt="user-image" class="rounded-full h-8">
+                    <img th:src="@{/admin/assets/images/users/avatar-1.jpg}" alt="user-image" class="rounded-full h-8">
                     <span class="md:flex flex-col gap-0.5 text-start hidden">
-                            <h5 class="text-sm">Tosha Minner</h5>
+                            <h5 class="text-sm" sec:authentication="name">Tosha Minner</h5>
                             <span class="text-xs">Founder</span>
+                        <!--                        <span th:remove="tag" sec:authentication="name">thymeleaf</span>!-->
                         </span>
                 </button>
 
@@ -330,11 +339,19 @@
                     </a>
 
                     <!-- item-->
-                    <a href="auth-logout-2.html"
+                    <!-- Logout Link -->
+                    <a href="#" onclick="document.getElementById('logout-form').submit();"
                        class="flex items-center gap-2 py-1.5 px-4 text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
                         <i class="ri-logout-box-line text-lg align-middle"></i>
                         <span>Logout</span>
                     </a>
+
+                    <!-- Logout Form -->
+                    <form id="logout-form" th:action="@{/admin/logout}" method="post" style="display: none;">
+                        <!-- CSRF token is not needed since CSRF is disabled -->
+                    </form>
+
+
                 </div>
             </div>
         </header>
@@ -546,7 +563,6 @@
                 </button>
             </div>
         </div>
-
     </div>
 
 </div>
@@ -556,22 +572,27 @@
 <!--</footer>-->
 
 <!-- Plugin Js -->
-<script th:src="@{admin/assets/libs/simplebar/simplebar.min.js}"></script>
-<script th:src="@{admin/assets/libs/lucide/umd/lucide.min.js}"></script>
-<script th:src="@{admin/assets/libs/@frostui/tailwindcss/frostui.js}"></script>
+
+<div layout:fragment="customJs">
+
+</div>
+
+<script th:src="@{/admin/assets/libs/simplebar/simplebar.min.js}"></script>
+<script th:src="@{/admin/assets/libs/lucide/umd/lucide.min.js}"></script>
+<script th:src="@{/admin/assets/libs/@frostui/tailwindcss/frostui.js}"></script>
 
 <!-- App Js -->
-<script th:src="@{admin/assets/js/app.js}"></script>
+<script th:src="@{/admin/assets/js/app.js}"></script>
 
 <!-- Apex Charts js -->
-<script th:src="@{admin/assets/libs/apexcharts/apexcharts.min.js}"></script>
+<script th:src="@{/admin/assets/libs/apexcharts/apexcharts.min.js}"></script>
 
 <!-- Vector Map Js -->
-<script th:src="@{admin/assets/libs/jsvectormap/js/jsvectormap.min.js}"></script>
-<script th:src="@{admin/assets/libs/jsvectormap/maps/world-merc.js}"></script>
-<script th:src="@{admin/assets/libs/jsvectormap/maps/world.js}"></script>
+<script th:src="@{/admin/assets/libs/jsvectormap/js/jsvectormap.min.js}"></script>
+<script th:src="@{/admin/assets/libs/jsvectormap/maps/world-merc.js}"></script>
+<script th:src="@{/admin/assets/libs/jsvectormap/maps/world.js}"></script>
 
 <!-- Dashboard App js -->
-<script th:src="@{admin/assets/js/pages/dashboard.js}"></script>
+<script th:src="@{/admin/assets/js/pages/dashboard.js}"></script>
 </body>
 </html>
